@@ -1,0 +1,36 @@
+.user-controls {
+  --avatar-size: 45px;
+}
+
+.wallet {
+  &-info {
+
+  }
+
+  .currency {
+    font: var(--paragraphs-regular-bold);
+    margin-right: 4px;
+    color: var(--primary);
+  }
+
+  .amount {
+    font: var(--headline-small-bold);
+  }
+}
+
+.user {
+  margin: 0 16px;
+
+  &-name {
+    font: var(--paragraphs-large);
+  }
+}
+
+.avatar {
+  img {
+    display: block;
+    border-radius: 50%;
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+  }
+}

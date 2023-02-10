@@ -1,0 +1,27 @@
+button {
+  padding: 8px 16px;
+  background-color: var(--background);
+  border: 2px solid var(--gray);
+  border-radius: 4px;
+  font: var(--paragraphs-regular-bold);
+  color: var(--on-background);
+  cursor: pointer;
+}
+
+[data-color="primary"]  {
+  background-color: var(--primary);
+  color: var(--on-primary);
+}
+
+[data-color="secondary"] {
+  background-color: var(--secondary);
+  color: var(--on-secondary);
+  border-color: var(--white);
+}
+
+[data-color="ternary"] {
+  background-color: var(--ternary);
+  color: var(--on-ternary);
+  border-color: var(--white);
+}
+

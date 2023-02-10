@@ -1,0 +1,14 @@
+<div class="user-controls flex flex-v-center flex-h-between">
+  <div class="wallet">
+    <p class="wallet-info flex flex-v-center">
+      <span class="currency">{{wallet?.currency}}</span>
+      <span class="amount">{{wallet?.amount}}</span>
+    </p>
+  </div>
+  <div class="user">
+    <p class="user-name">{{user?.name}}</p>
+  </div>
+  <div class="avatar">
+    <img [src]="user?.avatar" [alt]="user?.name + ' avatar'">
+  </div>
+</div>

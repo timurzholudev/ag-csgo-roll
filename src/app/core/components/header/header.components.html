@@ -1,0 +1,14 @@
+<header>
+  <div class="container flex flex-v-center flex-h-between">
+    <a>CS:GO - ROLL</a>
+    <div class="controls">
+      <ag-user-controls *ngIf="user; else login"
+      [user]="user"></ag-user-controls>
+      <ng-template #login>
+        <ag-button [text]="'Login'"
+                   [color]="'secondary'"
+                   (clicked)="steamLogin()"></ag-button>
+      </ng-template>
+    </div>
+  </div>
+</header>
