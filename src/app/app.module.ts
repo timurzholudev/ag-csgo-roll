@@ -12,6 +12,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { reducers } from "./store/app.reducer";
 import { UserEffects } from "./store/user/effects";
+import { BoxesEffect } from "./store/box/effects";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { UserEffects } from "./store/user/effects";
       logOnly: true,
       autoPause: true
     }),
-    EffectsModule.forRoot([UserEffects]),
+    EffectsModule.forRoot([UserEffects, BoxesEffect]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     GraphQLModule,
     HttpClientModule,

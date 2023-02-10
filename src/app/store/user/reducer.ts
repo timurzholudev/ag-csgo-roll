@@ -5,14 +5,12 @@ import * as UserActions from "./actions";
 
 export interface UserState {
   me: User | undefined,
-  error: string | undefined,
-  check: string
+  error: string | undefined
 }
 
 export const initialState: UserState = {
   me: undefined,
   error: undefined,
-  check: "OK" // TODO: Remove
 }
 
 export const reducer = createReducer(
