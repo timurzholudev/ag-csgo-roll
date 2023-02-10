@@ -1,1 +1,52 @@
-/* You can add global styles to this file, and also import other style files */
+@import "assets/main";
+
+:root {
+  // COLORS
+  --white: #FFFFFF;
+  --gray: #8E8C8C;
+  --black: #000000;
+
+  --primary: #044EEA;
+  --on-primary: var(--white);
+
+  --secondary: #81DD0D;
+  --on-secondary: var(--black);
+
+  --ternary: #F21321;
+  --on-ternary: var(--white);;
+
+  --background: var(--black);
+  --on-background: var(--white);
+
+  --alternative-background: var(--gray);
+  ---on-alternative-background: var(--black);
+
+  // HEADER
+  --header-height: 60px;
+
+  // SIZING
+  --conainer-max: 1200px;
+
+  // TEXT
+  --text-base-size: 1em;
+
+  --headline-large: normal 900 32px Roboto;
+  --headline-regular: normal 400 24px Roboto;
+  --headline-small: normal 400 20px Roboto;
+  --headline-small-bold: normal 900 20px Roboto;
+  --headline-tiny: normal 400 16px Roboto;
+  --headline-tiny-bold: normal 900 16px Roboto;
+
+  --paragraphs-large: normal 400 16px Roboto;
+  --paragraphs-large-bold: normal 900 16px Roboto;
+  --paragraphs-regular: normal 400 14px Roboto;
+  --paragraphs-regular-bold: normal 900 14px Roboto;
+  --paragraphs-small: normal 400 12px Roboto;
+  --paragraphs-small-bold: normal 900 12px Roboto;
+  --paragraphs-tiny: normal 400 10px Roboto;
+  --paragraphs-tiny-bold: normal 900 10px Roboto;
+}
+
+body {
+  font-size: var(--text-base-size);
+}
