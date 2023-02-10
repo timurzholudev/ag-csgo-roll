@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { select, Store } from "@ngrx/store";
 
 import * as UserAction from "./store/user/actions"
+import * as BoxesAction from "./store/box/actions"
 import { Observable } from "rxjs";
-import { AppState } from "./store/user/app.state";
+import { AppState } from "./store/app.state";
 import { getUserSelector } from "./store/app.selectors";
 import { User } from "./store/user/model";
 
@@ -24,5 +25,6 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.user$ = this.store.pipe(select(getUserSelector))
     this.store.dispatch(UserAction.getUser());
+    this.store.dispatch(BoxesAction.getBoxes());
   }
 }

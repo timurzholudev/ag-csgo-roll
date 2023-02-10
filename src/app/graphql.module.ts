@@ -7,6 +7,7 @@ import { HttpLink } from 'apollo-angular/http';
 import { createClient } from "graphql-ws";
 
 const uri = 'https://api-staging.csgoroll.com/graphql';
+const url = 'wss://api-staging.csgoroll.com/graphql';
 
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
   const http = httpLink.create({
@@ -16,7 +17,7 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
 
   const wss = new GraphQLWsLink(
     createClient({
-      url: "wss://api-staging.csgoroll.com/graphql",
+      url,
       connectionParams: {
         withCredentials: true
       }

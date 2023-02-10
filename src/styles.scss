@@ -32,6 +32,7 @@
 
   --headline-large: normal 900 32px Roboto;
   --headline-regular: normal 400 24px Roboto;
+  --headline-regular-bold: normal 900 24px Roboto;
   --headline-small: normal 400 20px Roboto;
   --headline-small-bold: normal 900 20px Roboto;
   --headline-tiny: normal 400 16px Roboto;
@@ -45,6 +46,11 @@
   --paragraphs-small-bold: normal 900 12px Roboto;
   --paragraphs-tiny: normal 400 10px Roboto;
   --paragraphs-tiny-bold: normal 900 10px Roboto;
+}
+
+html,
+body {
+  background-color: var(--background);
 }
 
 body {
