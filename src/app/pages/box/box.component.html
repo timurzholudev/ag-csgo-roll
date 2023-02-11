@@ -11,9 +11,16 @@
       [price]="box.cost"
       [imgUrl]="box.iconUrl"></ag-box-thumbnail>
     <div class="controls">
-      <ag-button [text]="'Open the box'"
-                 [color]="'primary'"
-                 (clicked)="purchaseBox()"></ag-button>
+      <ag-button *ngIf="!(user$ | async);else purchase"
+                 [text]="'login'"
+                 [color]="'secondary'"
+                 (clicked)="steamLogin()">
+      </ag-button>
+      <ng-template #purchase>
+        <ag-button [text]="'Open the box'"
+                   [color]="'primary'"
+                   (clicked)="purchaseBox()"></ag-button>
+      </ng-template>
     </div>
   </div>
 </section>

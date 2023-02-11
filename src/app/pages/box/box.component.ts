@@ -7,8 +7,9 @@ import { EMPTY_SUBSCRIPTION } from "rxjs/internal/Subscription";
 
 import { AppState } from "../../store/app.state";
 import { BoxNode, BoxOpening } from "../../store/box/model";
-import { didBoxesLoaded, getBoxById, getOpenedBoxes, isBoxesOpening } from "../../store/app.selectors";
+import { didBoxesLoaded, getBoxById, getOpenedBoxes, getUserSelector, isBoxesOpening } from "../../store/app.selectors";
 import * as BoxesAction from "../../store/box/actions";
+import { User } from "../../store/user/model";
 
 @Component({
   selector: "ag-box",
@@ -24,6 +25,8 @@ export class BoxComponent implements OnInit, OnDestroy {
 
   isBoxesOpening$: Observable<boolean> = of(false);
   openedBoxes$: Observable<BoxOpening[] | undefined> | undefined;
+  user$: Observable<User | undefined> | undefined;
+
 
   private data$$: Subscription = EMPTY_SUBSCRIPTION;
 
@@ -37,7 +40,8 @@ export class BoxComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.openedBoxes$ = this.store.pipe(select(getOpenedBoxes()));
-    this.isBoxesOpening$ = this.store.pipe(select(isBoxesOpening()))
+    this.isBoxesOpening$ = this.store.pipe(select(isBoxesOpening()));
+    this.user$ = this.store.pipe(select(getUserSelector))
 
     const getBox$ = this.store.pipe(select(didBoxesLoaded())).pipe(
       distinctUntilChanged(),
@@ -83,6 +87,10 @@ export class BoxComponent implements OnInit, OnDestroy {
   closeBoxOpeningDialog() {
     this.toggleBoxOpeningDialog = false;
     this.store.dispatch(BoxesAction.clearOpenBox())
+  }
+
+  steamLogin() {
+    window.location.href = "https://api-staging.csgoroll.com/auth/steam?redirectUri=http://localhost:4200";
   }
 
 }

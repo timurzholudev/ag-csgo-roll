@@ -46,10 +46,7 @@ export class UserService {
             }
           }
         }
-      `,
-      variables: {
-        repoName: `kamilkisiela/apollo-angular`
-      }
+      `
     })
   }
 
