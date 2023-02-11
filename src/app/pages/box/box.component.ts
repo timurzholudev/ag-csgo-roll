@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { select, Store } from "@ngrx/store";
 import { distinctUntilChanged, filter, merge, Observable, of, Subscription, switchMap, withLatestFrom } from "rxjs";
 import { tap } from "rxjs/operators"
@@ -29,6 +29,7 @@ export class BoxComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private store: Store<AppState>,
     private changeDetector: ChangeDetectorRef,
   ) {
@@ -44,7 +45,13 @@ export class BoxComponent implements OnInit, OnDestroy {
       withLatestFrom(this.route.params),
       switchMap(([ , params ]) => {
         return this.store.pipe(select(getBoxById(params["id"]))).pipe(
-            tap(box => this.box = box)
+            tap(box => {
+              if(!box) {
+                this.router.navigate(['/404']);
+                return
+              }
+              this.box = box
+            })
           )
       })
     )
