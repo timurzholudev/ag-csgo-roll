@@ -1,0 +1,14 @@
+section {
+  background: var(--white);
+  color: var(---on-alternative-background);
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  min-height: 400px;
+  padding: 24px 16px;
+  border-radius: 8px;
+}
+
+ag-box-thumbnail {
+  max-width: 200px;
+}

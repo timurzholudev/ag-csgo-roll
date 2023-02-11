@@ -1,0 +1,43 @@
+.box {
+  display: block;
+  background-color: var(--alternative-background);
+  color: var(---on-alternative-background);
+  border-radius: 8px;
+  transition: transform 0.1s ease-in;
+
+  &-visual {
+    img {
+      max-width: var(--max-box-width);
+      width: 100%;
+      aspect-ratio: 1 / 1;
+    }
+  }
+
+  &-info {
+    padding: 16px 8px;
+  }
+
+  &-info {
+    padding-top: 16px;
+  }
+
+  &-name {
+    font: var(--headline-tiny-bold);
+  }
+
+  &-cost {
+    font: var(--headline-tiny);
+    border-radius: 4px;
+    padding: 4px 8px;
+
+    ag-image {
+      margin-right: 4px;
+    }
+  }
+}
+
+[data-animte="true"] {
+  &:hover {
+    transform: translateY(-4px);
+  }
+}

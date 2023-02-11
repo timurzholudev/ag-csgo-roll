@@ -3,6 +3,7 @@
 :root {
   // COLORS
   --white: #FFFFFF;
+  --light-gray: #f3f3f3;
   --gray: #8E8C8C;
   --black: #000000;
 
@@ -26,6 +27,7 @@
 
   // SIZING
   --conainer-max: 1200px;
+  --max-box-width: 300px;
 
   // TEXT
   --text-base-size: 1em;
@@ -51,8 +53,13 @@
 html,
 body {
   background-color: var(--background);
+  color: var(--on-background);
 }
 
 body {
   font-size: var(--text-base-size);
+}
+
+main {
+  min-height: calc(100vh - var(--header-height));
 }

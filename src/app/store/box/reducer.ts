@@ -1,20 +1,24 @@
 import { createReducer, on } from "@ngrx/store";
 
-import { Box, PageInfo } from "./model";
+import { Box, BoxOpening, PageInfo } from "./model";
 import * as BoxActions from "./actions";
 
 export interface BoxesState {
   boxes: Box[] | undefined,
+  openedBoxes: BoxOpening[] | undefined
   pageInfo: PageInfo | undefined,
+  isLoading: boolean,
+  isOpening: boolean,
   error: string | undefined,
-  isLoading: boolean
 }
 
 export const initialState: BoxesState = {
   boxes: undefined,
+  openedBoxes: undefined,
   pageInfo: undefined,
+  isLoading: false,
+  isOpening: false,
   error: undefined,
-  isLoading: false
 }
 
 export const reducer = createReducer(
@@ -27,4 +31,8 @@ export const reducer = createReducer(
     isLoading: false
   })),
   on(BoxActions.getBoxesError, (state, action) => ({ ...state, error: action.error })),
+  on(BoxActions.openBox, (state) => ({ ...state, isOpening: true })),
+  on(BoxActions.openBoxSuccess, (state, action) => ({ ...state, openedBoxes: action.openBoxes, isOpening: false })),
+  on(BoxActions.openBoxError, (state, action) => ({ ...state, error: action.error, isOpening: false })),
+  on(BoxActions.clearOpenBox, (state) => ({ ...state, openedBoxes: undefined })),
 )

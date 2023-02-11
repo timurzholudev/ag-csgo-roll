@@ -1,25 +1,38 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
+import { RouterModule } from "@angular/router";
+
 import { HeaderComponents } from "./components/header/header.components";
 import { UserControlsComponent } from "./components/header/user-controls/user-controls.component";
-import { SharedModule } from "../shared/shared.module";
+import { ButtonComponent } from "./components/button/button.component";
+import { ImageComponent } from "./components/image/image.component";
+
+import { FallbackImageDirective } from "./directives/fallback-image.directive";
 
 const COMPONENTS = [
-  HeaderComponents
+  HeaderComponents,
+  ButtonComponent,
+  ImageComponent
+];
+
+const DIRECTIVES = [
+  FallbackImageDirective
 ]
 
 @NgModule({
   imports: [
     CommonModule,
-    SharedModule,
+    RouterModule,
   ],
   declarations: [
     COMPONENTS,
+    DIRECTIVES,
     UserControlsComponent
   ],
   providers: [],
   exports: [
-    COMPONENTS
+    COMPONENTS,
+    DIRECTIVES,
   ]
 })
 export class CoreModule { }

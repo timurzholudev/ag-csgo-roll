@@ -1,0 +1,18 @@
+<ag-box-opening *ngIf="toggleBoxOpeningDialog"
+                class="flex flex-v-center flex-h-center"
+                [openedBoxes]="openedBoxes$ | async"
+                [loading]="isBoxesOpening$ | async"
+                (closeDialog)="closeBoxOpeningDialog()"></ag-box-opening>
+<section class="container flex flex-v-center flex-h-center">
+  <div class="selected-box">
+    <ag-box-thumbnail
+      [title]="box?.name"
+      [price]="box?.cost"
+      [imgUrl]="box?.iconUrl"></ag-box-thumbnail>
+    <div class="controls">
+      <ag-button [text]="'Buy'"
+                 [color]="'primary'"
+                 (clicked)="purchaseBox()"></ag-button>
+    </div>
+  </div>
+</section>

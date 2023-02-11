@@ -1,0 +1,18 @@
+<article class="box"
+  [attr.data-animte]="animate">
+  <div class="box-visual">
+    <ag-image [imgSrc]="imgUrl"
+              [imgAlt]="title + ' icon'"
+              [style]="{'--img-max-width': '--max-box-width'}"></ag-image>
+  </div>
+  <div class="box-info flex flex-v-center flex-h-between">
+    <h3 class="box-name">{{title}}</h3>
+    <div class="box-cost flex flex-v-center">
+      <ag-image
+        imgSrc="../../../assets/images/coin.png"
+        imgAlt="coin icon"
+        [style]="{'--img-max-width': '20px'}"></ag-image>
+      <p>{{price}}</p>
+    </div>
+  </div>
+</article>

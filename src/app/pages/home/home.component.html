@@ -1,9 +1,16 @@
 <div *ngIf="isLoading$ | async;else loaded"
-  class="loading container">
+     class="loading container">
   <h2>Loading...</h2>
 </div>
 <ng-template #loaded>
   <section class="container">
-    <ag-box *ngFor="let box of boxes$ | async" [box]="box.node"></ag-box>
+    <a *ngFor="let box of boxes$ | async"
+       [routerLink]="['/box', box.node.id]">
+      <ag-box-thumbnail
+        [title]="box.node.name"
+        [price]="box.node.cost"
+        [imgUrl]="box.node.iconUrl"
+        [animate]="true"></ag-box-thumbnail>
+    </a>
   </section>
 </ng-template>

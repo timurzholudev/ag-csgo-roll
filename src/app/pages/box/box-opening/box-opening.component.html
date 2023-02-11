@@ -1,0 +1,24 @@
+<section class="flex flex-h-between"
+         [ngClass]="{
+          'flex-v-center flex-h-center' : loading,
+          'flex-h-between flex-column': !loading
+          }">
+  <div *ngIf="loading;else loaded">
+    <div class="loader"></div>
+    <p>Loading</p>
+  </div>
+  <ng-template #loaded>
+    <div class="flex flex-h-left">
+      <ag-box-thumbnail *ngFor="let box of openedBoxes"
+        [title]="box?.itemVariant?.name"
+        [price]="box?.itemVariant?.value"
+        [imgUrl]="box?.itemVariant?.iconUrl"></ag-box-thumbnail>
+    </div>
+    <div class="flex flex-h-right">
+      <ag-button [text]="'close'"
+                 [color]="'secondary'"
+                 (clicked)="close()"></ag-button>
+    </div>
+  </ng-template>
+</section>
+<div class="overlay-bg"></div>

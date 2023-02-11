@@ -1,7 +1,7 @@
 <header>
   <div class="container flex flex-v-center flex-h-between">
-    <a>CS:GO - ROLL</a>
-    <div class="controls">
+    <a routerLink="/">CS:GO - ROLL</a>
+    <div>
       <ag-user-controls *ngIf="user; else login"
       [user]="user"></ag-user-controls>
       <ng-template #login>
