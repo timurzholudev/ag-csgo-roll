@@ -1,10 +1,11 @@
-import { Component, Input } from "@angular/core";
+import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
 import { User } from "../../../store/user/model";
 
 @Component({
   selector: "ag-header",
   templateUrl: './header.components.html',
-  styleUrls: ['./header.components.scss']
+  styleUrls: ['./header.components.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponents {
   // TODO: Investigate why null is required when user$ type is Observable<User | undefined>

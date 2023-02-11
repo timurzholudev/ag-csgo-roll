@@ -21,12 +21,7 @@ export class UserEffects {
     ofType(UserActions.getUserSuccess),
     mergeMap(() => {
       return this.service.walletUpdate().pipe(
-        map(resp => {
-          console.log("walletUpdate$")
-          console.log(resp)
-          console.log("walletUpdate$")
-          return UserActions.walletUpdate({ data: resp })
-        })
+        map((resp: any) => UserActions.walletUpdate({ wallet: resp.data.updateWallet.wallet }))
       )
     })
   ))

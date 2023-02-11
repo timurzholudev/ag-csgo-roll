@@ -20,3 +20,25 @@ export interface BoxNode {
   iconUrl: string,
   cost: number
 }
+
+export interface OpenBoxInput {
+  boxId: string,
+  amount: number,
+  multiplierBoxBet?: number
+}
+
+export interface OpenBox {
+  boxOpenings: BoxOpening[];
+}
+
+export interface BoxOpening {
+  id: string;
+  itemVariant: ItemVariant;
+}
+
+export interface ItemVariant {
+  id: string;
+  name: string;
+  iconUrl: string;
+  value: number;
+}

@@ -1,6 +1,6 @@
 import { createAction, props } from "@ngrx/store";
 
-import { User } from "./model"
+import { User, Wallet } from "./model"
 
 const PREFIX = "[User]"
 const PREFIX_WALLET = "[User Wallet]"
@@ -17,5 +17,5 @@ export const getUserError = createAction(
 
 export const walletUpdate = createAction(
   `${PREFIX_WALLET} Wallet update`,
-  props<{data: any}>()
+  props<{wallet: Wallet}>()
 );

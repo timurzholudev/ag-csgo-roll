@@ -17,6 +17,16 @@ export class BoxesEffect {
     })
   ));
 
+  openBox$ = createEffect(() => this.action$.pipe(
+    ofType(BoxesAction.openBox),
+    mergeMap((action) => {
+      return this.service.openBoxes(action.openBoxInput).pipe(
+        map((resp: any) => BoxesAction.openBoxSuccess({openBoxes: resp.data.openBox.boxOpenings})),
+        catchError((error => of(BoxesAction.getBoxesError({ error: error.message }))))
+      )
+    })
+  ));
+
   constructor(
     private action$: Actions,
     private service: BoxesService
